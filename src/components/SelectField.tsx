@@ -1,15 +1,18 @@
 import type { ChangeEvent } from 'react'
+import type { Option } from '../data/mockData'
 
 interface SelectFieldProps {
     id: string
+    label?: string
     value: string
     onChange: (e: ChangeEvent<HTMLSelectElement>) => void
-    options: string[]
+    options: Option[]
     required?: boolean
 }
 
 const SelectField = ({
                          id,
+                         label,
                          value,
                          onChange,
                          options,
@@ -17,8 +20,8 @@ const SelectField = ({
                      }: SelectFieldProps) => {
     return (
         <div className="form-group">
-            <label className="form-label" htmlFor="category">
-                {id.charAt(0).toUpperCase() + id.slice(1)}
+            <label className="form-label" htmlFor={id}>
+                {label || id.charAt(0).toUpperCase() + id.slice(1)}
             </label>
             <select
                 className="form-control"
@@ -27,10 +30,10 @@ const SelectField = ({
                 onChange={onChange}
                 required={required}
             >
-                <option value="">Select a category</option>
-                {options.map((option) => (
-                    <option key={option} value={option}>
-                        {option}
+                {/*<option value="">Select a category</option>*/}
+                {options.map((option, index) => (
+                    <option key={index} value={option.value}>
+                        {option.text}
                     </option>
                 ))}
             </select>

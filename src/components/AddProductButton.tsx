@@ -5,14 +5,8 @@ import { API_URL } from '../utils/mockapi'
 import { useAdd } from '../hooks/useAdd'
 import ProductForm from '../components/ProductForm'
 // import { INITIAL_PRODUCT } from '../data/mockData'
+import { EMPTY_PRODUCT } from '../data/mockData'
 
-const EMPTY_PRODUCT: Partial<ProductInterface> = {
-    name: '',
-    description: '',
-    price: 0,
-    image: '',
-    category: ''
-}
 
 const AddProductButton = () => {
     const [showModal, setShowModal] = useState(false)

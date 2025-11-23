@@ -1,4 +1,4 @@
-import type { ChangeEvent } from 'react'
+import type { ChangeEvent, Ref} from 'react'
 
 interface InputFieldProps {
     id: string
@@ -8,6 +8,7 @@ interface InputFieldProps {
     type?: string
     required?: boolean
     textarea?: boolean
+    ref?: Ref<HTMLInputElement>
 }
 
 const InputField = ({
@@ -17,7 +18,8 @@ const InputField = ({
                         placeholder,
                         type = 'text',
                         required = true,
-                        textarea = false
+                        textarea = false,
+                        ref,
                     }: InputFieldProps) => {
     return (
         <div className="form-group">
@@ -35,6 +37,7 @@ const InputField = ({
                 />
             ) : (
                 <input
+                    ref={ref}
                     className="form-control"
                     id={id}
                     type={type}

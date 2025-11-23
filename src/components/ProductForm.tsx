@@ -18,6 +18,7 @@ const ProductForm = ({ onSubmit, product }: ProductFormProps) => {
     const [image, setImage] = useState(product.image ?? '')
     const [category, setCategory] = useState(product.category ?? '')
 
+
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
 
