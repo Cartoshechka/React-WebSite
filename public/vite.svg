@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="32" height="32">
+  <!-- Shopping Cart -->
+  <path fill="#000000" stroke="#000000" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" d="M12 8h6l2 4h32l-4 28H20l-4-24"/>
+  <path fill="#000000" d="M20 16l3.5 22h24l3.5-22H20z"/>
+  <circle fill="#000000" cx="28" cy="48" r="3"/>
+  <circle fill="#000000" cx="42" cy="48" r="3"/>
+</svg>
+
