@@ -3,6 +3,8 @@ import type { ProductInterface } from '../types/product.interface'
 import { API_URL } from '../utils/mockapi'
 import { useDelete } from '../hooks/useDelete'
 import EditProductButton from './EditProductButton'
+import {useSelector} from "react-redux";
+import type {RootState} from "../redux/store.ts";
 
 interface ProductProps {
     product: ProductInterface
@@ -14,6 +16,7 @@ const Product = ({
                      reload
                  }: ProductProps) => {
     const { deleteProduct } = useDelete(API_URL)
+    const {isAuthenticated} = useSelector((state: RootState) => state.auth)
 
     const handleDeleteProduct = async () => {
         try {
@@ -36,7 +39,7 @@ const Product = ({
             <p className="product-item__category">{category}</p>
             <h3 className="product-item__price">${price}</h3>
             <img className="product-item__image" src={imageUrl} alt={name} />
-            <div className="product-item__actions">
+            {isAuthenticated && ( <div className="product-item__actions">
                 <button className="product-item__delete" onClick={handleDeleteProduct}>
                     <FaTrash />
                 </button>
@@ -46,7 +49,7 @@ const Product = ({
                 >
                     <FaEdit />
                 </EditProductButton>
-            </div>
+            </div>)}
         </li>
     )
 }

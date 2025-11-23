@@ -128,7 +128,8 @@ h1 {
     gap: 32px;
 }
 
-.navbar_item a {
+.navbar_item a,
+.navbar_item button {
     display: block;
     padding: 8px 12px;
     border-radius: 12px;
@@ -137,9 +138,13 @@ h1 {
     font-size: 14px;
     font-weight: 400;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
 }
 
-.navbar_item a:hover {
+.navbar_item a:hover,
+.navbar_item button:hover {
     background-color: rgba(0, 0, 0, 0.04);
     color: #000;
 }

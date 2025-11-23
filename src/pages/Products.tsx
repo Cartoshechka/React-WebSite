@@ -10,12 +10,15 @@ import {ORDER_BY_LIST, SORT_BY_LIST} from "../data/mockData.ts";
 import {MdRefresh} from "react-icons/md";
 import InputField from "../components/InputField.tsx";
 import SelectField from "../components/SelectField.tsx";
+import {useSelector} from "react-redux";
+import type {RootState} from "../redux/store.ts";
 
 const Products = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [name, setName] = useState('')
     const [sort, setSort] = useState<string>('')
     const [order, setOrder] = useState<'asc' | 'desc'>('asc')
+    const {isAuthenticated} = useSelector((state: RootState) => state.auth)
     const [page, setPage] = useState(() => {
         const pageParam = searchParams.get('page')
         return pageParam ? parseInt(pageParam) : 1
@@ -100,7 +103,7 @@ const Products = () => {
             {!isLoading && !error && (
                 <div className="content">
                 <div>
-                    <AddProductButton />
+                    {isAuthenticated && <AddProductButton />}
                     <div className="pagination">
                     <button
                         className="pagination__btn"
